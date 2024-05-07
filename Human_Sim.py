@@ -1,11 +1,13 @@
 class SEX():
     def __init__(self,GENDER) -> None:
-        self.GENDER = GENDER
+        self.GENDER = GENDER.upper()
     def __str__(self) -> str:
         return f'{self.GENDER}'
     def check_reproduce(self, partner):
         if partner.GENDER != self.GENDER:
             return True
+        else:
+            return False
 class HUMAN():
     def __init__(self,GENDER) -> None:
         self.AGE = 0
@@ -21,5 +23,5 @@ class HUMAN():
 def main():
     John = HUMAN("Male")
     Martha = HUMAN("Male")
-    print(John.GENDER.check_reproduce(Martha))
+    print(John.GENDER.check_reproduce(Martha.GENDER))
 main()
