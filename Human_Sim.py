@@ -18,7 +18,7 @@ class HUMAN():
         self.CHILDREN = []
         self.CHILDREN_COUNT = 0
         self.GENDER = SEX(GENDER)
-        self.SPOUSE = HUMAN()
+        self.SPOUSE = []
     def reproduce(self,partner):
         if self.GENDER.check_reproduce(partner.GENDER):
             if random.randint(0,1) == 1:
@@ -28,37 +28,24 @@ class HUMAN():
                 print("John the ", self.CHILDREN_COUNT, " has been born")
             else:
                 print(self.NAME, " and ", partner.NAME," had sex")
- git config --global user.name "Mona Lisa"
- git config --global user.email "you@example.com"
-def John_Martha():
-    John = HUMAN("Male","John")
-    Martha = HUMAN("Female","Martha")
-    stop = True
-    while stop:
-        if John.DEAD == False and Martha.DEAD == False:
-            if random.randint(0,40) != 40:
-                John.reproduce(Martha)
-                time.sleep(1)
-            else:
-                if random.randint(0,1) == 1:
-                    John.DEAD = True
-                    print("John Died")
-                    stop = False
-                    print("[ ", end= "")
-                    for i in range(len(John.CHILDREN)):
-                        print(John.CHILDREN[i].NAME, end=" ")
-                    print("]")
-                else:
-                    Martha.DEAD = True
-                    print("Martha Died")
-                    stop = False
-                    print("[", end= "")
-                    for i in range(len(John.CHILDREN)):
-                        print(John.CHILDREN[i].NAME, end=" ")
-                    print("]")
-                    
-if input("What do you want to do (run) -> ").upper() == "RUN":
-    John_Martha()
-else:
-    print()
-#I hate
+def Sim_No1():
+    Humans = []
+    input1 = ""
+    while input1 != "Y" and input1 != "y" :
+        Humans.append(HUMAN(input("Gender for Human 1 -> "), input("Name for Human 1 -> ")))
+        Humans.append(HUMAN(input("Gender for Human 2 -> "), input("Name for Human 2 -> ")))
+        for i in range(len(Humans)):
+            print("[",end = "")
+            print(Humans[i].NAME, ",", Humans[i].GENDER, end = "]")
+        input1 = input(" Are these your starting humnans? Y/N -> ")
+    for i in range(len(Humans)):
+        try:
+            Humans.append(Humans[i].reproduce(Humans[i + 1]))
+        except:
+            print("All done")
+    for i in range(len(Humans)):
+        print("[",end = "")
+        print(Humans[i].NAME, ",", Humans[i].GENDER, end = "]")
+
+
+Sim_No1()
