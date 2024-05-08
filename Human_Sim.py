@@ -47,5 +47,5 @@ def Sim_No1():
         print("[",end = "")
         print(Humans[i].NAME, ",", Humans[i].GENDER, end = "]")
 
-
+#syo
 Sim_No1()
