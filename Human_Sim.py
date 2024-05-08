@@ -28,7 +28,8 @@ class HUMAN():
                 print("John the ", self.CHILDREN_COUNT, " has been born")
             else:
                 print(self.NAME, " and ", partner.NAME," had sex")
- 
+ git config --global user.name "Mona Lisa"
+ git config --global user.email "you@example.com"
 def John_Martha():
     John = HUMAN("Male","John")
     Martha = HUMAN("Female","Martha")
@@ -60,3 +61,4 @@ if input("What do you want to do (run) -> ").upper() == "RUN":
     John_Martha()
 else:
     print()
+#I hate
