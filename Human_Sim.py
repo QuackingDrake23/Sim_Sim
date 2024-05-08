@@ -18,17 +18,18 @@ class HUMAN():
         self.CHILDREN = []
         self.CHILDREN_COUNT = 0
         self.GENDER = SEX(GENDER)
+        self.SPOUSE = HUMAN()
     def reproduce(self,partner):
         if self.GENDER.check_reproduce(partner.GENDER):
-            if random.randint(0,2) == 1:
+            if random.randint(0,1) == 1:
                 self.CHILDREN_COUNT += 1
                 print(self.NAME, " and ", partner.NAME,"had sex and made a kid ")
-                self.CHILDREN.append(HUMAN("MALE", str(self.CHILDREN_COUNT)))
+                self.CHILDREN.append(HUMAN("MALE", ("Spawn " + str(self.CHILDREN_COUNT))))
                 print("John the ", self.CHILDREN_COUNT, " has been born")
             else:
                 print(self.NAME, " and ", partner.NAME," had sex")
  
-def main():
+def John_Martha():
     John = HUMAN("Male","John")
     Martha = HUMAN("Female","Martha")
     stop = True
@@ -42,14 +43,20 @@ def main():
                     John.DEAD = True
                     print("John Died")
                     stop = False
+                    print("[ ", end= "")
                     for i in range(len(John.CHILDREN)):
                         print(John.CHILDREN[i].NAME, end=" ")
+                    print("]")
                 else:
                     Martha.DEAD = True
                     print("Martha Died")
                     stop = False
+                    print("[", end= "")
                     for i in range(len(John.CHILDREN)):
                         print(John.CHILDREN[i].NAME, end=" ")
+                    print("]")
                     
-
-main()
+if input("What do you want to do (run) -> ").upper() == "RUN":
+    John_Martha()
+else:
+    print()
