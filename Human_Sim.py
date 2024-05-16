@@ -45,6 +45,10 @@ class HUMAN():
                 kk = 0
                 #print(self.NAME, " and ", partner.NAME," had sex")
 def Sim_No1(count2):
+    Humans.append(HUMAN("MALE", "John",None))
+    Humans.append(HUMAN("FEMALE", "Martha",None))
+    Humans[0].SPOUSE = Humans[1]
+    Humans[1].SPOUSE = Humans[0]
     input1 = "y"
     print(count2)
     if count2 < 60 :
@@ -70,18 +74,16 @@ def Sim_No1(count2):
     
 
 #syo
-Humans.append(HUMAN("MALE", "John",None))
-Humans.append(HUMAN("FEMALE", "Martha",None))
-Humans[0].SPOUSE = Humans[1]
-Humans[1].SPOUSE = Humans[0]
+#rember to put your file path here
+file2 = open(r"c:\Users\CMP_WiDowney\Texts\funny.txt", "a") 
 Sim_No1(0)
 rand = random.randint(0,len(Humans))
-print(rand)
-for i in range(len(Humans[rand].CHILDREN)):
-    print(Humans[rand].CHILDREN[i])
-print("Parents")
-print(len(Humans))
+count = 0
 while Humans[rand].PARENT != None:
+    count += 1
     print(Humans[rand].PARENT)
     rand = (Humans.index(Humans[rand].PARENT))
+    l = ["Gen " + str(count) + "\n", str(Humans[rand].PARENT) + "\n"]
+    file2.writelines(l)
+file2.close()
 
