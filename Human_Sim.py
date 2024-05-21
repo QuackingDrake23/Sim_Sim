@@ -52,7 +52,6 @@ def Sim_No1(count2):
     input1 = "y"
     print(count2)
     if count2 < 60 :
-
         for i in range(len(Humans)):
             if Humans[i].SPOUSE == None:
                 #print("attemptioing to find a spouse for ", Humans[i].NAME)
@@ -86,4 +85,5 @@ while Humans[rand].PARENT != None:
     l = ["Gen " + str(count) + "\n", str(Humans[rand].PARENT) + "\n"]
     file2.writelines(l)
 file2.close()
-
+print(Humans)
+print(len(Humans))
